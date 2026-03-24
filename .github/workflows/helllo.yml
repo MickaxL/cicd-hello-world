@@ -1,0 +1,27 @@
+name: My First Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Show system info
+        run: |
+          echo "Date: $(date)"
+          echo "OS: $(uname -a)"
+          echo "Who am I: $(whoami)"
+          echo "Working directory: $(pwd)"
+
+      - name: List repo files
+        run: ls -la
